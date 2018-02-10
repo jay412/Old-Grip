@@ -6,7 +6,7 @@
     <string name="calculate_tax">Calculate Tax</string>
     <string name="tips">Tips:</string>
     <string name="custom_tip">Custom Tip</string>
-    <string name="initial_custom_tip">25%</string>
+    <string name="initial_custom_tip">.25</string>
     <string name="fifteen_percent">15%</string>
     <string name="twenty_percent">20%</string>
     <string name="initial_no_of_people">1</string>
