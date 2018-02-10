@@ -90,8 +90,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void calculateTax(double mCost){
         tax = mCost * 0.08875;
-        roundToMoneyFormat(tax);
-        String calcTax = Double.toString(tax);
+        String calcTax = roundToMoneyFormat(tax);
+        //String calcTax = Double.toString(tax);
+        tax = Double.valueOf(calcTax);
         etTax.setText(calcTax);
     }
 
@@ -102,13 +103,14 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Tax has not been calculated yet.", Toast.LENGTH_LONG).show();
         else {
             tips = (mCost + mealTax) * percent;
-            roundToMoneyFormat(tips);
-            String calcTips = Double.toString(tips);
+            String calcTips = roundToMoneyFormat(tips);
+            //String calcTips = Double.toString(tips);
+            tips = Double.valueOf(calcTips);
             etTips.setText(calcTips);
         }
     }
 
-    private void calculateTotal(double mealCost, double mealTax, double tips, double numPeople){
+    private void calculateTotal(double mCost, double mealTax, double tips, double numPeople){
         if(TextUtils.isEmpty(etTotalMealCost.getText().toString()))
             Toast.makeText(MainActivity.this, "Please specify a value for Total Meal Cost.", Toast.LENGTH_LONG).show();
         else if(TextUtils.isEmpty(etTax.getText().toString()))
@@ -119,9 +121,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Invalid number of people.", Toast.LENGTH_LONG).show();
         }
         else {
-            grandTotal = (mealCost + mealTax + tips) / numPeople;
-            roundToMoneyFormat(grandTotal);
-            tvGrandTotal.setText("$" + Double.toString(grandTotal));
+            grandTotal = (mCost + mealTax + tips) / numPeople;
+
+            String total = roundToMoneyFormat(grandTotal);
+            grandTotal = Double.valueOf(total);
+            tvGrandTotal.setText("$" + total);
         }
     }
 
