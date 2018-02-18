@@ -14,4 +14,5 @@
     <string name="calculate_total">Calculate Total</string>
     <string name="grand_total_each">Grand Total (Each):</string>
     <string name="initial_grand_total">$0.00</string>
+    <string name="clear">Clear</string>
 </resources>

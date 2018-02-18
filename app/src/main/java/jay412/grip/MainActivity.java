@@ -14,7 +14,7 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
     private EditText etTotalMealCost, etTax, etTips, etCustomTips, etPeopleShare;
-    private Button btnCalculateTax, btn15Tips, btn20Tips, btnCustomTips, btnCalculateGrandTotal;
+    private Button btnCalculateTax, btn15Tips, btn20Tips, btnCustomTips, btnCalculateGrandTotal, btnClear;
     private TextView tvGrandTotal;
 
     private double mealCost, tax, tips, numPeople, grandTotal;
@@ -37,55 +37,12 @@ public class MainActivity extends AppCompatActivity {
         tvGrandTotal = findViewById(R.id.tvGrandTotalValue);
 
         btnCalculateTax = findViewById(R.id.btnCalcTax);
-        btnCalculateTax.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(TextUtils.isEmpty(etTotalMealCost.getText().toString()))
-                    Toast.makeText(MainActivity.this, "Please specify a value for Total Meal Cost.", Toast.LENGTH_LONG).show();
-                else {
-                    mealCost = Double.valueOf(etTotalMealCost.getText().toString());
-                    calculateTax(mealCost);
-                }
-            }
-        });
-
         btn15Tips = findViewById(R.id.btn15);
-        btn15Tips.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculateTips(mealCost, tax, 0.15);
-            }
-        });
-
         btn20Tips = findViewById(R.id.btn20);
-        btn20Tips.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculateTips(mealCost, tax, 0.20);
-            }
-        });
-
         btnCustomTips = findViewById(R.id.btnCustomTip);
-        btnCustomTips.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(TextUtils.isEmpty(etCustomTips.getText().toString()))
-                    Toast.makeText(MainActivity.this, "Please specify a value for Custom Tips.", Toast.LENGTH_LONG).show();
-                else {
-                    double tipPercent = Double.valueOf(etCustomTips.getText().toString());
-                    calculateTips(mealCost, tax, tipPercent);
-                }
-            }
-        });
-
         btnCalculateGrandTotal = findViewById(R.id.btnCalculateTotal);
-        btnCalculateGrandTotal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numPeople = Double.valueOf(etPeopleShare.getText().toString());
-                calculateTotal(mealCost, tax, tips, numPeople);
-            }
-        });
+
+        setUpButtons();
     }
 
     private void calculateTax(double mCost){
@@ -133,5 +90,53 @@ public class MainActivity extends AppCompatActivity {
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
         return df.format(m);
+    }
+
+    private void setUpButtons(){
+        btnCalculateTax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(TextUtils.isEmpty(etTotalMealCost.getText().toString()))
+                    Toast.makeText(MainActivity.this, "Please specify a value for Total Meal Cost.", Toast.LENGTH_LONG).show();
+                else {
+                    mealCost = Double.valueOf(etTotalMealCost.getText().toString());
+                    calculateTax(mealCost);
+                }
+            }
+        });
+
+        btn15Tips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateTips(mealCost, tax, 0.15);
+            }
+        });
+
+        btn20Tips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateTips(mealCost, tax, 0.20);
+            }
+        });
+
+        btnCustomTips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(TextUtils.isEmpty(etCustomTips.getText().toString()))
+                    Toast.makeText(MainActivity.this, "Please specify a value for Custom Tips.", Toast.LENGTH_LONG).show();
+                else {
+                    double tipPercent = Double.valueOf(etCustomTips.getText().toString());
+                    calculateTips(mealCost, tax, tipPercent);
+                }
+            }
+        });
+
+        btnCalculateGrandTotal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numPeople = Double.valueOf(etPeopleShare.getText().toString());
+                calculateTotal(mealCost, tax, tips, numPeople);
+            }
+        });
     }
 }
