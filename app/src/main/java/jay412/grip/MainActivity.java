@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btn20Tips = findViewById(R.id.btn20);
         btnCustomTips = findViewById(R.id.btnCustomTip);
         btnCalculateGrandTotal = findViewById(R.id.btnCalculateTotal);
+        btnClear = findViewById(R.id.btn_clear);
 
         setUpButtons();
     }
@@ -92,6 +93,15 @@ public class MainActivity extends AppCompatActivity {
         return df.format(m);
     }
 
+    public void resetFields(){
+        etTotalMealCost.getText().clear();
+        etTax.getText().clear();
+        etTips.getText().clear();
+        etCustomTips.getText().clear();
+        etPeopleShare.setText("1");
+        tvGrandTotal.setText(getString(R.string.initial_grand_total));
+    }
+
     private void setUpButtons(){
         btnCalculateTax.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +146,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 numPeople = Double.valueOf(etPeopleShare.getText().toString());
                 calculateTotal(mealCost, tax, tips, numPeople);
+            }
+        });
+
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetFields();
             }
         });
     }

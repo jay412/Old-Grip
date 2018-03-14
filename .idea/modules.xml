@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Grip.iml" filepath="$PROJECT_DIR$/Grip.iml" />
+      <module fileurl="file://C:\Users\jchau3\Documents\Grip\Grip.iml" filepath="C:\Users\jchau3\Documents\Grip\Grip.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\jchau3\Documents\Grip\app\app.iml" filepath="C:\Users\jchau3\Documents\Grip\app\app.iml" />
     </modules>
   </component>
 </project>
