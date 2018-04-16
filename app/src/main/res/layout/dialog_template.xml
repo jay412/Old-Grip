@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/tv_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_name" />
+
+    <EditText
+        android:id="@+id/et_item"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/ex_item"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price" />
+
+    <EditText
+        android:id="@+id/et_price"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/ex_price"
+        android:textAlignment="center"
+        android:inputType="numberDecimal" />
+
+    <!-- <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        /> -->
+</LinearLayout>

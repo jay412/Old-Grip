@@ -23,4 +23,12 @@
 
     <!-- add menu strings -->
     <string name="add">Add</string>
+    <string name="add_item">Add Item</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- dialog template strings -->
+    <string name="item_name">Item Name:</string>
+    <string name="ex_item">Ex: Pizza</string>
+    <string name="price">Price:</string>
+    <string name="ex_price">2.50</string>
 </resources>
