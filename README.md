@@ -7,6 +7,7 @@ Currently in development of additional features such as:
 - Calculate total cost by entering each item's value and name for reference
 - Add a preference for tax rate
 - Optimize custom tip and # of people sharing with a dropdown and/or pop-up
+- Edit main activity layout
 
 # Instructions
 1) Enter value for Total Meal Cost
@@ -14,4 +15,4 @@ Currently in development of additional features such as:
 3) Tap 15% or 20% to calculate tips for the meal or enter a value and tap Custom Tip
 4) Enter the number of people sharing
 5) Tap the Calculate Total button to calculate the grand total for each person to pay
-6) Tap the Clear button to clear all fields
+6) Open the menu and tap Clear to clear all fields
