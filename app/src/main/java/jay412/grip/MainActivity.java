@@ -1,8 +1,12 @@
 package jay412.grip;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,12 +18,12 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
     private EditText etTotalMealCost, etTax, etTips, etCustomTips, etPeopleShare;
-    private Button btnCalculateTax, btn15Tips, btn20Tips, btnCustomTips, btnCalculateGrandTotal, btnClear;
+    private Button btnCalculateTax, btn15Tips, btn20Tips, btnCustomTips, btnCalculateGrandTotal, btnCalculateTotalMeal;
     private TextView tvGrandTotal;
 
     private double mealCost, tax, tips, numPeople, grandTotal;
 
-    /*TO-DO:
+    /*TODO:
     * tax field is editable b/c different places have different tax rates
 
       */
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btn20Tips = findViewById(R.id.btn20);
         btnCustomTips = findViewById(R.id.btnCustomTip);
         btnCalculateGrandTotal = findViewById(R.id.btnCalculateTotal);
-        btnClear = findViewById(R.id.btn_clear);
+        btnCalculateTotalMeal = findViewById(R.id.btn_calc_total_meal);
 
         setUpButtons();
     }
@@ -149,11 +153,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnClear.setOnClickListener(new View.OnClickListener() {
+        btnCalculateTotalMeal.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                resetFields();
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, TotalMealActivity.class);
+                startActivity(i);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.clear_setting) {
+            resetFields();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/etMealCost"
-        android:layout_width="96dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/total_meal_cost"
         android:textColor="@color/colorPrimary"
@@ -50,12 +50,11 @@
         android:id="@+id/tvPeopleShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/no_of_people_sharing"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btn15"
         app:layout_constraintTop_toBottomOf="@+id/btn15" />
 
     <EditText
@@ -76,27 +75,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:layout_marginStart="32dp"
         android:text="@string/grand_total_each"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/tvPeopleShare" />
 
     <TextView
         android:id="@+id/tvGrandTotalValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:text="@string/initial_grand_total"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tvGrandTotalTag"
         app:layout_constraintStart_toEndOf="@+id/tvGrandTotalTag" />
 
     <EditText
         android:id="@+id/etTax"
-        android:layout_width="71dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
@@ -138,36 +135,33 @@
         android:id="@+id/tvTips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:text="@string/tips"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvTaxTag"
         app:layout_constraintTop_toBottomOf="@+id/tvTaxTag" />
 
     <EditText
         android:id="@+id/etTips"
-        android:layout_width="71dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/initial_tax_tip"
         android:inputType="number|numberDecimal"
         android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/tvTips"
+        app:layout_constraintStart_toStartOf="@+id/etTax"
         app:layout_constraintTop_toBottomOf="@+id/etTax" />
 
     <Button
         android:id="@+id/btn15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:text="@string/fifteen_percent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvMealCost"
         app:layout_constraintTop_toBottomOf="@+id/tvTips" />
 
     <Button
@@ -175,44 +169,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:text="@string/twenty_percent"
         app:layout_constraintStart_toEndOf="@+id/btn15"
-        app:layout_constraintTop_toBottomOf="@+id/etTips" />
+        app:layout_constraintTop_toTopOf="@+id/btn15" />
 
     <Button
         android:id="@+id/btnCustomTip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:text="@string/custom_tip"
         app:layout_constraintStart_toEndOf="@+id/btn20"
-        app:layout_constraintTop_toBottomOf="@+id/etCustomTip" />
+        app:layout_constraintTop_toTopOf="@+id/btn20" />
 
     <EditText
         android:id="@+id/etCustomTip"
-        android:layout_width="58dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="@string/initial_custom_tip"
         android:inputType="numberDecimal"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnCustomTip"
         app:layout_constraintTop_toBottomOf="@+id/btnCalcTax" />
 
     <Button
-        android:id="@+id/btn_clear"
+        android:id="@+id/btn_calc_total_meal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/calculate"
         android:backgroundTint="@android:color/holo_green_dark"
-        android:text="@string/clear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvGrandTotalValue" />
+        app:layout_constraintStart_toEndOf="@+id/etMealCost"
+        app:layout_constraintTop_toTopOf="@+id/etMealCost" />
+
 </android.support.constraint.ConstraintLayout>
