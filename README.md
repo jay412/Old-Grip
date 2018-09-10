@@ -1,4 +1,4 @@
-# Grip
+# Old-Grip (This is an older version of Grip, see newer version)
 An Android app that calculates meal-sharing costs between a group of people.
 
 Currently in development of additional features such as:
